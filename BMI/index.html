@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+
+        .box {
+            text-align: center;
+            border: 3px solid black;
+            background-color: rgb(81 207 191 / 41%);
+            display: block;
+
+        }
+
+        .inp {
+            padding: 10px 20px;
+            border: 4px solid black;
+            background-color:white;
+            margin: 5px 10px;
+            margin-top: 30px;
+        }
+
+        ::placeholder {
+            text-align: center;
+            color: black;
+        }
+
+        .btn {
+            border: 4px solid black;
+            margin-top: 10px;
+            border-radius: 20px;
+            padding: 4px 10px;
+        }
+
+        .message {
+            padding: 20px;
+        }
+
+        span,
+        p {
+            border: 4px solid black;
+            padding: 8px 150px;
+            background-color:white;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 4px 4px;
+
+
+        }
+
+        .message {
+            margin-top: 10px;
+        }
+
+        .btn {
+            color: white;
+            background-color: red;
+            font-size: 20px;
+        }
+
+        .btn:hover {
+            color: red;
+            background-color: white;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>BODY MASS INDEX</h1>
+        <div class="container">
+            <input type="number" id="height" class="inp" placeholder="Height(in m)">
+            <input type="number" id="weight" class="inp" placeholder="Weight(in kg)">
+        </div>
+        <button class="btn" id="btn">Calculate</button>
+        <div class="result">
+            <span id="bmi">BMI</span>
+        </div>
+        <div class="message">
+            <p id="msg">Message</p>
+        </div>
+    </div>
+
+<script>
+            let h = document.getElementById("height");
+            let w = document.getElementById("weight");
+            let bmi = document.getElementById("bmi");
+            let btn = document.getElementById("btn");
+            let msg = document.getElementById('msg');
+
+
+
+
+            btn.addEventListener('click', function () {
+                let height = h.value;
+                let weight = w.value;
+                let b = weight / (height * height);
+                b = b.toFixed(2);
+
+                bmi.innerHTML = b;
+
+                if (b < 18.5) {
+                    msg.innerHTML = "Underweight";
+
+                }
+                else if (b >= 18.5 && b <= 24.9) {
+                    msg.innerHTML = "Healthy Weight";
+                }
+                else if (b >= 25 && b <= 29.9) {
+                    msg.innerHTML = "Overweight";
+                }
+                else {
+                    msg.innerHTML = "Obese";
+                }
+
+            })
+
+
+        </script>
+    
+</body>
+
+</html>
